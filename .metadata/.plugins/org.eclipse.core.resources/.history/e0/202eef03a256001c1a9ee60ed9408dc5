@@ -1,0 +1,52 @@
+package com.study.service;
+
+import java.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.study.mapper.BoardMapper;
+import com.study.vo.BoardVO;
+import com.study.vo.Criteria;
+
+@Service
+public class BoardServiceImpl implements BoardService {
+
+	@Autowired
+	private BoardMapper mapper;
+	
+	@Override
+	public void boardRegiste(BoardVO board) {
+		mapper.boardRegiste(board);
+	}
+	
+	@Override
+	public List<BoardVO> getList(){
+		return mapper.getList();
+	}
+	
+	@Override
+	public BoardVO getBoardPage(int boardNumber) {
+		return mapper.getBoardPage(boardNumber);
+	}
+	
+	@Override
+	public void modify(BoardVO board) {
+		mapper.modify(board);
+	}
+	
+	@Override
+	public void delete(int boardNumber) {
+		mapper.delete(boardNumber);
+	}
+	
+	@Override
+	public List<BoardVO> getPagingList(Criteria cri){
+		return mapper.getPagingList(cri);
+	}
+	
+	@Override
+	public int getTotal() {
+		return mapper.getTotal();
+	}
+}

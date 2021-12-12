@@ -1,0 +1,47 @@
+package com.study.service;
+
+import java.util.Random;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.study.mapper.MemberMapper;
+import com.study.vo.MemberVO;
+
+@Service
+public class MemberServiceImpl implements MemberService {
+	
+	@Autowired
+	private MemberMapper mapper;
+	
+	@Override
+	public void memberJoin(MemberVO member) throws Exception {
+		mapper.memberJoin(member);
+	}
+	
+	@Override
+	public int idCheck(String memberID) throws Exception{
+		return mapper.idCheck(memberID);
+	}
+	
+	@Override
+	public int authRandomNumber() throws Exception{
+		Random random = new Random();
+		
+		int checkNumber = random.nextInt(888888)+111111;
+		
+		return checkNumber;
+	}
+	
+	@Override
+	public void sendMail(String email) throws Exception{
+		String sendingMail = "shimdev1216@naver.com";
+		String userMail = email;
+		String mailTitle = "회원가입 인증 이메일입니다.";
+		String mailContent = 
+				"인증번호는"+ checkNumber+"입니다."+
+		"<br>"+
+						"해당 인증번호를 인증번호 입력란에 기입해 주세요.";
+	}
+
+}

@@ -1,0 +1,53 @@
+package com.study.vo;
+
+import java.util.Date;
+
+public class BoardVO {
+	private int boardNumber; //게시물 번호
+	private String boardTitle; //게시물 제목
+	private String content; //게시물 내용
+	private String writer; //작성자
+	private Date boardRegistrationDate; //등록날짜
+	private Date updateDate; //수정날짜
+	public int getBoardNumber() {
+		return boardNumber;
+	}
+	public void setBoardNumber(int boardNumber) {
+		this.boardNumber = boardNumber;
+	}
+	
+	public String getBoardTitle() {
+		return boardTitle;
+	}
+	public void setBoardTitle(String boardTitle) {
+		this.boardTitle = boardTitle;
+	}
+	public String getContent() {
+		return content;
+	}
+	public void setContent(String content) {
+		this.content = content;
+	}
+	public String getWriter() {
+		return writer;
+	}
+	public void setWriter(String writer) {
+		this.writer = writer;
+	}
+	
+	
+	public Date getBoardRegistrationDate() {
+		return boardRegistrationDate;
+	}
+	public void setBoardRegistrationDate(Date boardRegistrationDate) {
+		this.boardRegistrationDate = boardRegistrationDate;
+	}
+	public Date getUpdateDate() {
+		return updateDate;
+	}
+	public void setUpdateDate(Date updateDate) {
+		this.updateDate = updateDate;
+	}
+
+
+}

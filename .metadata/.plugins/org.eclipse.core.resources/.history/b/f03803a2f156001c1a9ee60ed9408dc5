@@ -1,0 +1,19 @@
+package com.study.mapper;
+
+import org.junit.Test;
+import org.springframework.beans.factory.annotation.Autowired;
+
+import com.study.vo.MemberVO;
+
+public class MemberMapperTest {
+	@Autowired
+	private MemberMapper mapper;
+	
+	@Test
+	public void mapperTest() {
+		MemberVO member = new MemberVO();
+	}
+	
+	
+
+}

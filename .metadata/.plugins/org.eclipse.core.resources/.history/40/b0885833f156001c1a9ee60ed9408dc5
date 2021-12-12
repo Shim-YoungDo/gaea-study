@@ -1,0 +1,7 @@
+package com.study.mapper;
+
+public class MemberMapperTest {
+	@Autowired
+	private MemberVO member;
+
+}
