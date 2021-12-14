@@ -41,6 +41,14 @@ a{
     border: 1px solid #ddd;
     font-weight: 600;
   }
+  .list_btn{
+  	float:center;
+  	font-size: 20px;
+    padding: 6px 12px;
+    background-color: #fff;
+    border: 1px solid #ddd;
+    font-weight: 600;
+  }
   
   .pageInfo{
       list-style : none;

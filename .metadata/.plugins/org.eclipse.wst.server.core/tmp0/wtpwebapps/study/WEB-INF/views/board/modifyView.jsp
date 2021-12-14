@@ -42,9 +42,9 @@
 	<div class="btn_wrap">
 		<a class="btn" id="list_btn">목록</a>
 		<c:if test="${member.memberID == pageInfo.boardWriter}"> 
-		<a class="btn" id="modify_btn">수정 완료</a>
-		<a class="btn" id="delete_btn">삭제</a>
-		<a class="btn" id="cancel_btn">수정 취소</a>
+			<a class="btn" id="modify_btn">수정 완료</a>
+			<a class="btn" id="delete_btn">삭제</a>
+			<a class="btn" id="cancel_btn">수정 취소</a>
 		</c:if>
 	</div>
 	</form>

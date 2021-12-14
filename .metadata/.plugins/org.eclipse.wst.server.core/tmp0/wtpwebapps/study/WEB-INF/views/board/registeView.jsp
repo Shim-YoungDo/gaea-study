@@ -15,7 +15,7 @@
 <body>
 
 <h1>게시판 등록</h1>
-<form id="enrollForm" action="/board/register" method="post">
+<form id="enroll_form" action="/board/register" method="post">
 <c:if test="${member != null}">
 	<div class="input_wrap">
 		<label>Title</label>
@@ -45,61 +45,36 @@ var titleCheck = false;
 var contentCheck = false;
 
 $(document).ready(function(){
-	$('.enroll_button').click(function(){
+	$(".enroll_button").click(function(){
 		var title = $('.boardTitle').val();
 		var content = $('.boardContent').val();
 		
-		try{
-			if(title=""){
-				throw new Error;
-			}
-			else{
-				//$('.title_check').css('display', 'none');
-				titleCheck = true;
-			}
-		}catch(Error){
-			//$('.title_check').css('display', 'block');
+		if(title == ""){
+			//$('.final_id_ck').css('display','block');
 			titleCheck = false;
+		}else{
+			//$('.final_id_ck').css('display', 'none');
+			titleCheck = true;
 		}
 		
-		try{
-			if(content=""){
-				throw new Error;
-			}
-			else{
-				//$('.content_check').css('display', 'none');
-				contentCheck = true;
-			}
-		}catch(Error){
-			//$('.content_check').css('display', 'block');
+		if(content == ""){
+			//$('.final_id_ck').css('display','block');
 			contentCheck = false;
+		}else{
+			//$('.final_id_ck').css('display', 'none');
+			contentCheck = true;
 		}
 		
-		try{
+		if(titleCheck&&contentCheck){
+			$("#enroll_form").submit();		
 			
-			if(titleCheck&&contentCheck == true){
-				$("#enroll_form").submit();
-			}
-			throw new Error;
-			return false;
-			
-		}catch(Error){
+		}
+		else{
 			alert("잘못된 형식입니다.");
-			return false;
 		}
-	});
-	
-	/*
-	$('.cancel_button').click(function(){
-		let writer = $(".input_writer").val();
 		
-		writer = "";
-		
-		window.history.back();
-		$("#enroll_form").attr("method", "get");
-		$("#enroll_form").submit();
+		return false;
 	});
-	*/
 });
 </script>
 

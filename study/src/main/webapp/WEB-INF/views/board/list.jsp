@@ -13,9 +13,9 @@
 	crossorigin="anonymous"></script>
 </head>
 <body>
-	<h1>목록페이지입니다.</h1>
 	<div class="table_wrap">
 		<a href="/board/registeView" class="enroll_btn">글쓰기</a>
+		<a href="/board/list" class="list_btn">목록</a>
 		<div class="login_area">
 		<!-- 로그인 x -->
 		<c:if test="${member==null}">
@@ -96,6 +96,14 @@
 			</div>
 		</div>
 		
+		 
+		<div class="page_select_wrap">
+			<div class="page_select_area">
+				<input type = "text" pattern="\d" name="pageSelect"value='<c:out value="${pageMake.cri.pageNum}"/>'>
+				<input name = "totalPage" readonly="readonly" value = '<c:out value="${pageMake.realEnd}"/>'>
+				<button>페이지 이동</button>
+			</div>
+		</div>
 		
 		<div class="pageInfo_wrap">
 			<div class="pageInfo_area">
@@ -139,6 +147,7 @@
 		</form>
 	</div>
 </div>
+
 	<script>
 		let moveForm = $("#moveForm");
 		let pageForm = $("#pageForm");
@@ -221,8 +230,9 @@
 			pageForm.submit();
 		});*/
 		
-		
+		//화면에 출력될 총 게시글 수 선택
 		var selectBoxChange = function(value){
+			
 			let amount = $(".amount_area select").val();
 			
 			//pageForm.find("input[name]='amount'").val(amount);
@@ -234,6 +244,28 @@
 			console.log("결과:" +value);
 			//alert("성공", +data);
 		}
+		
+		//선택 페이지 이동
+		$(".page_select_area button").on("click",function(){
+			
+			let pageNum = $(".page_select_area [name='pageSelect']").val();
+			
+			moveForm.find("input[name='pageNum']").val(pageNum);
+			moveForm.attr("action", "/board/list");
+			moveForm.submit();
+		});
+		
+		
+		
+		
+		/*
+		$(".page_count_area button").on("click"function(){
+			let pageCount = $(".page_count_area [name='pageCount']").val();
+			moveForm.find("input[name='pageCount']").val(pageCount);
+			moveForm.attr("action", "/board/list");
+			moveForm.submit();
+		});
+		*/
 	</script>
 
 </body>
